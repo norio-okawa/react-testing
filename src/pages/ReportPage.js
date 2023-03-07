@@ -20,6 +20,7 @@ const ReportPage = () => {
         type: '',
         data: '',
     });
+    const [html, setHtml] = useState('');
 
     const onInputChange = (e) => {
         setFormValues({
@@ -62,6 +63,7 @@ const ReportPage = () => {
         })
             .then(res => {
                 console.log(res, 'res');
+                setHtml(res.data);
             })
             .catch(err => {
                 console.log(err, 'err')
@@ -85,7 +87,7 @@ const ReportPage = () => {
                     </Button>
                 </div>
             </Form>
-            <div className="mb-3 bg-white mx-5" style={{height: '400px'}}>
+            <div className="mb-3 bg-white mx-5" style={{height: '400px'}} dangerouslySetInnerHTML={{__html: html}}>
             </div>
         </div>
     ) : <Redirect to={'/'}/>;
