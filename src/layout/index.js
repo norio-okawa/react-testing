@@ -37,45 +37,36 @@ function AppLayout() {
                         <img src={logo} height={'50px'}/>
                     </Navbar.Brand>
                     <Navbar.Collapse id="basic-navbar-nav"
-                                     className="col-12 col-sm-auto my-2 justify-content-center my-md-0 text-small">
-                        <Nav className="me-auto"></Nav>
-                        <Nav className={'align-items-center'}>
-                            {!isMobile && (
+                                     className="col-12 col-sm-auto my-2 justify-content-end my-md-0 text-small">
+                        {!isMobile && (
+                            <Nav className={'align-items-center'}>
                                 <React.Fragment>
                                     <Nav.Link to={'/'} as={Link}>Home</Nav.Link>
                                     <Nav.Link to={'/report'} as={Link}>
                                         Report
                                     </Nav.Link>
+                                    <NavDropdown
+                                        title={(
+                                            <PersonCircle className="bi d-block mx-auto" width="32" height="32"/>
+                                        )}
+                                        align={"end"}
+                                        className={'no-carrot-dropdown'}
+                                    >
+                                        <NavDropdown.Item to="/logout" as={Link} hidden={!isLoggedIn}>
+                                            Logout
+                                        </NavDropdown.Item>
+                                    </NavDropdown>
                                 </React.Fragment>
-                            )}
-                            <NavDropdown
-                                title={(
-                                    <PersonCircle className="bi d-block mx-auto" width="32" height="32"/>
-                                )}
-                                align={"end"}
-                                className={'no-carrot-dropdown'}
-                            >
-                                {isMobile && (
-                                    <React.Fragment>
-                                        <NavDropdown.Item to="/" as={Link}>Home</NavDropdown.Item>
-                                        <NavDropdown.Item to="/report" as={Link}>Report</NavDropdown.Item>
-                                    </React.Fragment>
-                                )}
-                                <NavDropdown.Item to="/logout" as={Link} hidden={!isLoggedIn}>
-                                    Logout
-                                </NavDropdown.Item>
-                            </NavDropdown>
-                        </Nav>
+                            </Nav>
+                        )}
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            <Container>
-                <Switch>
-                    <Route path={'/'} exact component={HomePage}/>
-                    <Route path={'/report'} exact component={ReportPage}/>
-                    <Route path={'/logout'} exact component={LogoutPage}/>
-                </Switch>
-            </Container>
+            <Switch>
+                <Route path={'/'} exact component={HomePage}/>
+                <Route path={'/report'} exact component={ReportPage}/>
+                <Route path={'/logout'} exact component={LogoutPage}/>
+            </Switch>
         </div>
     );
 }

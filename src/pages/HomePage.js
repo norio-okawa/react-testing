@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-
-import LoginForm from './LoginForm';
 import {useSelector} from "react-redux";
-import {selectIsLoggedIn} from "../store/slices/authSlice";
 import {Table} from "react-bootstrap";
+import {selectIsLoggedIn} from "../store/slices/authSlice";
+
+import PageContainer from '../layout/PageContainer';
+import LoginForm from './LoginForm';
 
 const HomePage = () => {
 
@@ -24,10 +25,9 @@ const HomePage = () => {
     }, [isLoggedIn]);
 
     return (
-        <div className={"mt-2"}>
+        <PageContainer title={isLoggedIn ? "Home" : "Sign In"}>
             {isLoggedIn ? (
                 <div>
-                    <h3>Home</h3>
                     {tableData && tableData.length > 1 && (
                         <Table striped bordered hover>
                             <thead>
@@ -54,7 +54,7 @@ const HomePage = () => {
                     <LoginForm/>
                 </div>
             )}
-        </div>
+        </PageContainer>
     );
 };
 
