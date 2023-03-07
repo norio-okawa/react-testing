@@ -52,7 +52,7 @@ function AppLayout() {
                                         align={"end"}
                                         className={'no-carrot-dropdown'}
                                     >
-                                        {isLoggedIn && (
+                                        {!!isLoggedIn && (
                                             <NavDropdown.Item to="/logout" as={Link}>
                                                 Logout
                                             </NavDropdown.Item>
