@@ -2,8 +2,13 @@ import React, {useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import {useSelector} from "react-redux";
+import {selectIsLoggedIn} from "../store/slices/authSlice";
+import {Redirect} from "react-router-dom";
 
 const ReportPage = () => {
+
+    const isLoggedIn = useSelector(selectIsLoggedIn);
 
     const [formValues, setFormValues] = useState({
         number_value: '',
@@ -63,7 +68,7 @@ const ReportPage = () => {
             });
     };
 
-    return (
+    return isLoggedIn ? (
         <div>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -83,7 +88,7 @@ const ReportPage = () => {
             <div className="mb-3 bg-white mx-5" style={{height: '400px'}}>
             </div>
         </div>
-    );
+    ) : <Redirect to={'/'}/>;
 };
 
 export default ReportPage;
