@@ -36,9 +36,9 @@ function AppLayout() {
                     <Navbar.Brand className="d-flex align-items-center my-2 my-lg-0 me-sm-auto text-white">
                         <img src={logo} height={'50px'}/>
                     </Navbar.Brand>
-                    <Navbar.Collapse id="basic-navbar-nav"
-                                     className="col-12 col-sm-auto my-2 justify-content-end my-md-0 text-small">
-                        {!isMobile && (
+                    {!isMobile && (
+                        <Navbar.Collapse id="basic-navbar-nav"
+                                         className="col-12 col-sm-auto my-2 justify-content-end my-md-0 text-small">
                             <Nav className={'align-items-center'}>
                                 <React.Fragment>
                                     <Nav.Link to={'/'} as={Link}>Home</Nav.Link>
@@ -60,8 +60,8 @@ function AppLayout() {
                                     </NavDropdown>
                                 </React.Fragment>
                             </Nav>
-                        )}
-                    </Navbar.Collapse>
+                        </Navbar.Collapse>
+                    )}
                 </Container>
             </Navbar>
             <Switch>
