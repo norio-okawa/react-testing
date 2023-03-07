@@ -13,13 +13,15 @@ const HomePage = () => {
     const [tableData, setTableData] = useState([]);
 
     useEffect(() => {
+        if (!isLoggedIn) return;
+
         axios.get('https://paul.blueboxonline.com/api/v1/app.tabledata', {
             withCredentials: true,
         })
             .then(res => {
                 setTableData(res.data.tabledata);
             });
-    }, []);
+    }, [isLoggedIn]);
 
     return (
         <div className={"mt-2"}>
