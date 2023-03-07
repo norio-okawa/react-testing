@@ -15,7 +15,7 @@ const HomePage = () => {
     useEffect(() => {
         if (!isLoggedIn) return;
 
-        axios.get('https://paul.blueboxonline.com/api/v1/app.tabledata', {
+        axios.get('https://paul.blueboxonline.com/api/v1/app/tabledata', {
             withCredentials: true,
         })
             .then(res => {
