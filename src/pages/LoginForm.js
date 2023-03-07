@@ -43,7 +43,7 @@ const LoginForm = () => {
 
     return (
         <>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} className={"mt-5"}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Control type="email" placeholder="Email" name={'email'} value={formValues.email}
                                   onChange={onChangeValue}/>
@@ -53,9 +53,11 @@ const LoginForm = () => {
                     <Form.Control type="password" placeholder="Password" name={'password'} value={formValues.password}
                                   onChange={onChangeValue}/>
                 </Form.Group>
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
+                <div className={"text-center"}>
+                    <Button variant="primary" type="submit">
+                        Sign In
+                    </Button>
+                </div>
             </Form>
             <Modal show={modalShow} onHide={handleModalClose}>
                 <Modal.Header>
