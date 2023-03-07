@@ -52,9 +52,11 @@ function AppLayout() {
                                         align={"end"}
                                         className={'no-carrot-dropdown'}
                                     >
-                                        <NavDropdown.Item to="/logout" as={Link} hidden={!isLoggedIn}>
-                                            Logout
-                                        </NavDropdown.Item>
+                                        {isLoggedIn && (
+                                            <NavDropdown.Item to="/logout" as={Link}>
+                                                Logout
+                                            </NavDropdown.Item>
+                                        )}
                                     </NavDropdown>
                                 </React.Fragment>
                             </Nav>
