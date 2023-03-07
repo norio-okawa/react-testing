@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {Switch, Route, Link} from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import {Container, Dropdown, Nav, Navbar, NavDropdown} from 'react-bootstrap';
+import {PersonCircle} from 'react-bootstrap-icons';
 
 import HomePage from '../pages/HomePage';
 import ReportPage from '../pages/ReportPage';
@@ -24,22 +23,34 @@ function AppLayout() {
         <div className={"bg-light"} style={{
             minHeight: '100vh'
         }}>
-            <Navbar bg="white" expand={"md"}>
+            <Navbar bg="white"
+                    className="d-flex flex-wrap align-items-center justify-content-center justify-content-sm-start">
                 <Container fluid>
-                    <Navbar.Brand>
+                    <Navbar.Brand className="d-flex align-items-center my-2 my-lg-0 me-sm-auto text-white">
                         <img src={logo} height={'50px'}/>
                     </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
+                    <Navbar.Collapse id="basic-navbar-nav"
+                                     className="col-12 col-sm-auto my-2 justify-content-center my-md-0 text-small">
                         <Nav className="me-auto"></Nav>
-                        <Nav>
+                        <Nav className={'align-items-center'}>
                             <Nav.Link to={'/'} as={Link}>Home</Nav.Link>
                             <Nav.Link to={'/report'} as={Link}>
                                 Report
                             </Nav.Link>
-                            <Nav.Link to={'/logout'} as={Link}>
-                                Logout
-                            </Nav.Link>
+                            <NavDropdown
+                                title={(
+                                    <PersonCircle className="bi d-block mx-auto" width="32" height="32"/>
+                                )}
+                                align={"end"}
+                                className={'no-carrot-dropdown'}
+                            >
+                                <NavDropdown.Item to="/" as={Link}>Home</NavDropdown.Item>
+                                <NavDropdown.Item to="/report" as={Link}>Report</NavDropdown.Item>
+                                <NavDropdown.Divider/>
+                                <NavDropdown.Item to="/logout" as={Link}>
+                                    Logout
+                                </NavDropdown.Item>
+                            </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

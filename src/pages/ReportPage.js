@@ -62,7 +62,6 @@ const ReportPage = () => {
             withCredentials: true,
         })
             .then(res => {
-                console.log(res, 'res');
                 setHtml(res.data);
             })
             .catch(err => {
