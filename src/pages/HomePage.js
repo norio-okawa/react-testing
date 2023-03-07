@@ -13,7 +13,9 @@ const HomePage = () => {
     const [tableData, setTableData] = useState([]);
 
     useEffect(() => {
-        axios.get('https://paul.blueboxonline.com/api/v1/app.tabledata')
+        axios.get('https://paul.blueboxonline.com/api/v1/app.tabledata', {
+            withCredentials: true,
+        })
             .then(res => {
                 setTableData(res.data.tabledata);
             });

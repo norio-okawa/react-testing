@@ -52,6 +52,8 @@ const ReportPage = () => {
         axios.post('https://paul.blueboxonline.com/api/v1/app/report', {
             number_value: formValues.number_value,
             file,
+        }, {
+            withCredentials: true,
         })
             .then(res => {
                 console.log(res, 'res');
