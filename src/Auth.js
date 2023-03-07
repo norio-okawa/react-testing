@@ -15,7 +15,11 @@ const Auth = ({children}) => {
             withCredentials: true,
         })
             .then(res => {
-                dispatch(setUser(res.data));
+                if (res.data.email) {
+                    dispatch(setUser(res.data));
+                } else {
+                    dispatch(setUser(null));
+                }
             })
             .catch(() => {
                 dispatch(setUser(null));
