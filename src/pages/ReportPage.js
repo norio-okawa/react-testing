@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from "react-bootstrap/Button";
+import {Redirect} from "react-router-dom";
 import axios from "axios";
 import {useSelector} from "react-redux";
+import {Form, Button} from 'react-bootstrap';
 import {selectIsLoggedIn} from "../store/slices/authSlice";
-import {Redirect} from "react-router-dom";
+
+import PageContainer from "../layout/PageContainer";
 
 const ReportPage = () => {
 
@@ -70,7 +71,7 @@ const ReportPage = () => {
     };
 
     return isLoggedIn ? (
-        <div>
+        <PageContainer title={'Report'}>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Enter a value between 1 and 10</Form.Label>
@@ -88,7 +89,7 @@ const ReportPage = () => {
             </Form>
             <div className="mb-3 bg-white mx-5" style={{height: '400px'}} dangerouslySetInnerHTML={{__html: html}}>
             </div>
-        </div>
+        </PageContainer>
     ) : <Redirect to={'/'}/>;
 };
 
