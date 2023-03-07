@@ -11,7 +11,7 @@ const Auth = ({children}) => {
     useEffect(() => {
         if (isLoggedIn) return;
 
-        axios.get('/users/session', {
+        axios.get('https://paul.blueboxonline.com/api/v1/users/session', {
             withCredentials: true,
         })
             .then(res => {
