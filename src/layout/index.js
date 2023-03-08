@@ -30,15 +30,21 @@ function AppLayout() {
         <div className={"bg-light"} style={{
             minHeight: '100vh'
         }}>
-            <Navbar bg="white"
-                    className="d-flex flex-wrap align-items-center justify-content-center justify-content-sm-start">
+            <Navbar
+                bg="white"
+                className="d-flex flex-wrap align-items-center justify-content-center justify-content-sm-start"
+            >
                 <Container fluid>
-                    <Navbar.Brand className="d-flex align-items-center my-2 my-lg-0 me-sm-auto text-white">
+                    <Navbar.Brand
+                        className="d-flex align-items-center my-2 my-lg-0 me-sm-auto text-white"
+                    >
                         <img src={logo} height={'50px'} alt={"logo"}/>
                     </Navbar.Brand>
                     {!isMobile && (
-                        <Navbar.Collapse id="basic-navbar-nav"
-                                         className="col-12 col-sm-auto my-2 justify-content-end my-md-0 text-small">
+                        <Navbar.Collapse
+                            id="basic-navbar-nav"
+                            className="col-12 col-sm-auto my-2 justify-content-end my-md-0 text-small"
+                        >
                             <Nav className={'align-items-center'}>
                                 <React.Fragment>
                                     <Nav.Link to={'/'} as={Link}>Home</Nav.Link>

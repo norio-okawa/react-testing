@@ -56,8 +56,13 @@ const LoginForm = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control type="password" placeholder="Password" name={'password'} value={formValues.password}
-                                  onChange={onChangeValue}/>
+                    <Form.Control
+                        type="password"
+                        placeholder="Password"
+                        name={'password'}
+                        value={formValues.password}
+                        onChange={onChangeValue}
+                    />
                 </Form.Group>
                 <div className={"text-center"}>
                     <Button variant="primary" type="submit">
