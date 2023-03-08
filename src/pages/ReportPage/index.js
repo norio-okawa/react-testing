@@ -3,9 +3,10 @@ import {Redirect} from "react-router-dom";
 import axios from "axios";
 import {useSelector} from "react-redux";
 import {Form, Button} from 'react-bootstrap';
-import {selectIsLoggedIn} from "../store/slices/authSlice";
+import {selectIsLoggedIn} from "../../store/slices/authSlice";
+import './style.css';
 
-import PageContainer from "../layout/PageContainer";
+import PageContainer from "../../layout/PageContainer";
 
 const ReportPage = () => {
 
@@ -72,12 +73,12 @@ const ReportPage = () => {
 
     return isLoggedIn ? (
         <PageContainer title={'Report'}>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form onSubmit={handleSubmit} className={'report-form'}>
+                <Form.Group className="mb-3 form-group">
                     <Form.Label>Enter a value between 1 and 10</Form.Label>
                     <Form.Control type="number" name={'number_value'} placeholder="Value" onChange={onInputChange}/>
                 </Form.Group>
-                <Form.Group controlId="formFile" className="mb-3">
+                <Form.Group className="mb-3 form-group">
                     <Form.Label>Attach a JPG image</Form.Label>
                     <Form.Control type="file" name={'file'} onChange={onFileChange}/>
                 </Form.Group>

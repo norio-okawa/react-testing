@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import {useDispatch} from 'react-redux';
-import {setUser} from "../store/slices/authSlice";
+import {setUser} from "../../store/slices/authSlice";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import "./style.css";
 
 const LoginForm = () => {
 
@@ -42,11 +43,16 @@ const LoginForm = () => {
     };
 
     return (
-        <>
+        <div className={'login-form'}>
             <Form onSubmit={handleSubmit} className={"mt-5"}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Control type="email" placeholder="Email" name={'email'} value={formValues.email}
-                                  onChange={onChangeValue}/>
+                    <Form.Control
+                        type="email"
+                        placeholder="Email"
+                        name={'email'}
+                        value={formValues.email}
+                        onChange={onChangeValue}
+                    />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -70,7 +76,7 @@ const LoginForm = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
-        </>
+        </div>
     );
 };
 

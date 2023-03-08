@@ -34,7 +34,7 @@ function AppLayout() {
                     className="d-flex flex-wrap align-items-center justify-content-center justify-content-sm-start">
                 <Container fluid>
                     <Navbar.Brand className="d-flex align-items-center my-2 my-lg-0 me-sm-auto text-white">
-                        <img src={logo} height={'50px'}/>
+                        <img src={logo} height={'50px'} alt={"logo"}/>
                     </Navbar.Brand>
                     {!isMobile && (
                         <Navbar.Collapse id="basic-navbar-nav"

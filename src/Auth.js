@@ -26,7 +26,7 @@ const Auth = ({children}) => {
             });
     }, [isLoggedIn, dispatch]);
 
-    return children;
+    return <>{children}</>;
 };
 
 export default Auth;
