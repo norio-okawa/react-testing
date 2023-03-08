@@ -45,19 +45,19 @@ function AppLayout() {
                                     <Nav.Link to={'/report'} as={Link}>
                                         Report
                                     </Nav.Link>
-                                    <NavDropdown
-                                        title={(
-                                            <PersonCircle className="bi d-block mx-auto" width="32" height="32"/>
-                                        )}
-                                        align={"end"}
-                                        className={'no-carrot-dropdown'}
-                                    >
-                                        {!!isLoggedIn && (
+                                    {!!isLoggedIn && (
+                                        <NavDropdown
+                                            title={(
+                                                <PersonCircle className="bi d-block mx-auto" width="32" height="32"/>
+                                            )}
+                                            align={"end"}
+                                            className={'no-carrot-dropdown'}
+                                        >
                                             <NavDropdown.Item to="/logout" as={Link}>
                                                 Logout
                                             </NavDropdown.Item>
-                                        )}
-                                    </NavDropdown>
+                                        </NavDropdown>
+                                    )}
                                 </React.Fragment>
                             </Nav>
                         </Navbar.Collapse>
