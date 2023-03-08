@@ -12,7 +12,8 @@ const settingsSlice = createSlice({
     initialState,
     reducers: {
         setSettings: (state, action) => {
-            state = action.payload;
+            state.logo = action.payload.logo;
+            state.date_time = action.payload.date_time;
         },
     }
 });

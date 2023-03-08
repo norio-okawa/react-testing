@@ -30,9 +30,9 @@ const Auth = ({children}) => {
     useEffect(() => {
         axios.get('https://paul.blueboxonline.com/api/v1/app/settings')
             .then(res => {
-                setSettings(res.data);
+                dispatch(setSettings(res.data));
             });
-    }, []);
+    }, [dispatch]);
 
     return <>{children}</>;
 };
