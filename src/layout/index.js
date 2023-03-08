@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import axios from 'axios';
+import React from 'react';
 import {useMediaQuery} from 'react-responsive'
 import {Switch, Route, Link} from 'react-router-dom';
 import {Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
@@ -10,21 +9,14 @@ import ReportPage from '../pages/ReportPage';
 import LogoutPage from '../pages/LogoutPage';
 import {useSelector} from "react-redux";
 import {selectIsLoggedIn} from "../store/slices/authSlice";
+import {selectLogo} from "../store/slices/settingsSlice";
 
 function AppLayout() {
 
     const isMobile = useMediaQuery({query: '(max-width: 600px)'});
 
     const isLoggedIn = useSelector(selectIsLoggedIn);
-
-    const [logo, setLogo] = useState('');
-
-    useEffect(() => {
-        axios.get('https://paul.blueboxonline.com/api/v1/app/settings')
-            .then(res => {
-                setLogo(res.data.logo);
-            });
-    }, []);
+    const logo = useSelector(selectLogo);
 
     return (
         <div className={"bg-light"} style={{
